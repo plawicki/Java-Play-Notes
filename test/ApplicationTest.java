@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.google.common.collect.ImmutableMap;
 import controllers.routes;
 import models.Notification;
 import org.eclipse.jetty.util.Scanner;
@@ -23,6 +24,7 @@ import play.twirl.api.Content;
 import static play.data.Form.form;
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 
 /**
@@ -32,6 +34,16 @@ import static org.fest.assertions.Assertions.*;
 *
 */
 public class ApplicationTest {
+
+
+    String name = "tester";
+    String surname = "kowalski";
+    String email = "test@kowalski.com";
+    String yob = "2014-11-11";
+    String favDb = "1";
+    String notes = "I like it";
+
+    String wrongEmail = "asd@";
 
     @Test
     public void simpleCheck() {
@@ -93,4 +105,27 @@ public class ApplicationTest {
         assertThat(contentAsString(result)).contains("<a class=\"navbar-brand\" href=\"/\">Add new note</a>");
     }
 
+    @Test
+    public void callAdd() {
+
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "favDb", favDb)));
+                assertThat(status(result)).isEqualTo(OK);
+            }
+        });
+    }
+
+    @Test
+    public void callAddWrong() {
+
+        running(fakeApplication(), new Runnable() {
+            public void run() {
+                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("email", wrongEmail)));
+                assertThat(status(result)).isEqualTo(BAD_REQUEST);
+
+                //System.out.println(contentAsString(result));
+            }
+        });
+    }
 }
