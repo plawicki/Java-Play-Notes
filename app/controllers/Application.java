@@ -4,6 +4,7 @@ import com.avaje.ebean.Ebean;
 import models.Notification;
 
 import play.*;
+import play.api.mvc.RequestHeader;
 import play.data.Form;
 import play.db.jpa.Transactional;
 import play.mvc.*;
@@ -11,7 +12,6 @@ import play.mvc.*;
 import play.db.DB;
 
 import views.html.*;
-
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -47,7 +47,5 @@ public class Application extends Controller {
 
         return ok(notes.render(created));
     }
-
-
 
 }
