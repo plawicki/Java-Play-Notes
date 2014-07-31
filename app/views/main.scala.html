@@ -10,7 +10,7 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <script type="text/javascript" src="@routes.Assets.at("lib/jquery/jquery.min.js")"></script>
         <script type="text/javascript" src="@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")"></script>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <nav class="navbar navbar-default" role="navigation">
@@ -19,10 +19,10 @@
             </div>
         </nav>
         <div class="container">
-            <div class="row">
+            <div class="row hidden-sm hidden-xs">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <div class="list-group screen-sm">
+                    <div class="list-group">
                         <div class="list-group-item">
                             <h4 class="list-group-item-heading">New note</h4>
                         </div>
@@ -32,6 +32,13 @@
                     </div>
                 </div>
                 <div class="col-md-2"></div>
+            </div>
+            <div class="row visible-sm visible-xs">
+                <div class="col-md-12">
+                    <h4 class="list-group-item-heading">New note</h4>
+                    <hr>
+                    @content
+                </div>
             </div>
         </div>
     </body>
