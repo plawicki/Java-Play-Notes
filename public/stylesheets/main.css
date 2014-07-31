@@ -1,9 +1,15 @@
-.help-inline
+.error dd.error
 {
     color: red;
+
 }
 
-.help-block
+.error dd input
+{
+    border-color: red;
+}
+
+.info
 {
     font-size: 0.9em;
 }
