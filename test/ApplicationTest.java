@@ -5,11 +5,14 @@ import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.ImmutableMap;
+import controllers.Application;
 import controllers.routes;
 import models.Notification;
 import org.eclipse.jetty.util.Scanner;
 import org.junit.*;
 
+
+import play.GlobalSettings;
 import play.data.Form;
 import play.mvc.*;
 import play.test.*;
@@ -22,9 +25,13 @@ import play.libs.F.*;
 import play.twirl.api.Content;
 
 import static play.data.Form.form;
+import static play.libs.F.Tuple;
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
 import static org.junit.Assert.assertEquals;
+
+
+import static org.mockito.Mockito.*;
 
 
 /**
@@ -45,6 +52,18 @@ public class ApplicationTest {
 
     String wrongEmail = "asd@";
 
+    //Application app = mock(Application.class);
+    //Notification note = mock(Notification.class);
+
+
+    @Before
+    public void setUp(){
+
+        start(fakeApplication(inMemoryDatabase()));
+    }
+
+
+
     @Test
     public void simpleCheck() {
         int a = 1 + 1;
@@ -57,8 +76,7 @@ public class ApplicationTest {
 
         final Form<Notification> notForm = form(Notification.class);
 
-        running(fakeApplication(), new Runnable() {
-            public void run() {
+
                 Content html = views.html.index.render(notForm);
                 assertThat(contentType(html)).isEqualTo("text/html");
                 assertThat(contentAsString(html)).contains("Name:");
@@ -68,8 +86,6 @@ public class ApplicationTest {
                 assertThat(contentAsString(html)).contains("Your favourite database:");
                 assertThat(contentAsString(html)).contains("Notes:");
                 assertThat(contentAsString(html)).contains("<input type=\"text\" id=\"surname\" name=\"surname\" value=\"\" />");
-            }
-        });
 
     }
 
@@ -77,22 +93,18 @@ public class ApplicationTest {
     // routes
     @Test
     public void rootRoute() {
-        running(fakeApplication(), new Runnable() {
-            public void run() {
+
                 Result result = route(fakeRequest(GET, "/"));
                 assertThat(result).isNotNull();
-            }
-        });
+
     }
 
     @Test
     public void badRoute() {
-        running(fakeApplication(), new Runnable() {
-            public void run() {
+
                 Result result = route(fakeRequest(GET, "/bad"));
                 assertThat(result).isNull();
-            }
-        });
+
     }
 
     // controller
@@ -108,24 +120,18 @@ public class ApplicationTest {
     @Test
     public void callAdd() {
 
-        running(fakeApplication(), new Runnable() {
-            public void run() {
+
+
                 Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "favDb", favDb)));
                 assertThat(status(result)).isEqualTo(OK);
-            }
-        });
+
     }
 
     @Test
     public void callAddWrong() {
 
-        running(fakeApplication(), new Runnable() {
-            public void run() {
-                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("email", wrongEmail)));
+                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "email", wrongEmail)));
                 assertThat(status(result)).isEqualTo(BAD_REQUEST);
 
-                //System.out.println(contentAsString(result));
-            }
-        });
     }
 }

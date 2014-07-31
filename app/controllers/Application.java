@@ -1,6 +1,5 @@
 package controllers;
 
-import com.avaje.ebean.Ebean;
 import models.Notification;
 
 import play.*;

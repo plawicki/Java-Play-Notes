@@ -1,0 +1,273 @@
+[info] Loading project definition from C:\Users\patrykl\play-java\project
+[info] Set current project to play-java (in build file:/C:/Users/patrykl/play-java/)
+[info] play - datasource [jdbc:h2:mem:play-test--498025646;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.simpleCheck failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 4.144 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test-910314269;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.callAddWrong failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.213 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test--1208164157;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.callIndex failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.121 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test-1924763295;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.rootRoute failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.136 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test-269940682;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.callAdd failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.116 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test-1199033367;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.renderTemplate failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.141 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[warn] play - Error stopping plugin
+java.lang.NullPointerException: null
+	at play.libs.ws.ning.NingWSPlugin.onStop(NingWSPlugin.java:31) ~[play-java-ws_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:108) [play_2.11-2.3.2.jar:2.3.2]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.apply(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+	at scala.collection.immutable.List.foreach(List.scala:383) [scala-library-2.11.1.jar:na]
+	at play.api.Play$$anonfun$stop$1$$anonfun$apply$1.apply$mcV$sp(Play.scala:107) [play_2.11-2.3.2.jar:2.3.2]
+[info] play - datasource [jdbc:h2:mem:play-test-1765204254;] bound to JNDI as DefaultDS
+[error] play - Table "NOTIFICATION" already exists; SQL statement:
+create table notification (
+id                        integer not null,
+name                      varchar(255),
+surname                   varchar(255),
+date                      timestamp,
+email                     varchar(255),
+fav_db                    integer,
+notes                     varchar(255),
+constraint pk_notification primary key (id)) [42101-175] [ERROR:42101, SQLSTATE:42S01]
+[error] Test ApplicationTest.badRoute failed: play.api.db.evolutions.InconsistentDatabase: Database 'default' is in an inconsistent state![An evolution has not been applied properly. Please check the problem and resolve it manually before marking it as resolved.], took 0.127 sec
+[error]     at play.api.db.evolutions.Evolutions$.checkEvolutionsState(Evolutions.scala:196)
+[error]     at play.api.db.evolutions.Evolutions$.applyScript(Evolutions.scala:296)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:494)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:531)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:485)
+[error]     at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:483)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:483)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:91)
+[error]     at scala.collection.immutable.List.foreach(List.scala:383)
+[error]     at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.api.Play$$anonfun$start$1.apply(Play.scala:91)
+[error]     at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+[error]     at play.api.Play$.start(Play.scala:90)
+[error]     at play.api.Play.start(Play.scala)
+[error]     at play.test.Helpers.start(Helpers.java:469)
+[error]     at ApplicationTest.setUp(ApplicationTest.java:62)
+[error]     ...
+[error] Failed: Total 7, Failed 7, Errors 0, Passed 0
+[error] Failed tests:
+[error] 	ApplicationTest
+[error] (test:test) sbt.TestsFailedException: Tests unsuccessful
+[error] Total time: 9 s, completed 2014-07-31 12:14:32

@@ -2,6 +2,7 @@ package models;
 
 import play.data.validation.Constraints;
 
+import javax.annotation.RegEx;
 import javax.persistence.*;
 import java.util.Date;
 
@@ -33,14 +34,7 @@ public class Notification {
     @Constraints.MaxLength(5000)
     String notes;
 
-    public Notification(int id, String name, String surname, Date date, String email, int favDb, String notes) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.date = date;
-        this.email = email;
-        this.favDb = favDb;
-        this.notes = notes;
+    public Notification() {
     }
 
     public int getId() {
