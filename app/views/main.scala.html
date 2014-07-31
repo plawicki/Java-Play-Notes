@@ -11,6 +11,12 @@
         <script type="text/javascript" src="@routes.Assets.at("lib/jquery/jquery.min.js")"></script>
         <script type="text/javascript" src="@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            $(function(){
+                var form = $('form[action="/send/"').clone();
+                $('div.col-md-12').append(form);
+            });
+        </script>
     </head>
     <body>
         <nav class="navbar navbar-default" role="navigation">
@@ -37,7 +43,6 @@
                 <div class="col-md-12">
                     <h4 class="list-group-item-heading">New note</h4>
                     <hr>
-                    @content
                 </div>
             </div>
         </div>

@@ -1,35 +1,20 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.ImmutableMap;
 import controllers.Application;
 import controllers.routes;
 import models.Notification;
-import org.eclipse.jetty.util.Scanner;
+import models.dao.NotificationDao;
 import org.junit.*;
 
 
-import play.GlobalSettings;
 import play.data.Form;
 import play.mvc.*;
 import play.test.*;
-import play.data.DynamicForm;
-import play.data.validation.ValidationError;
-import play.data.validation.Constraints.RequiredValidator;
-import play.i18n.Lang;
-import play.libs.F;
-import play.libs.F.*;
+
 import play.twirl.api.Content;
 
 import static play.data.Form.form;
-import static play.libs.F.Tuple;
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
-import static org.junit.Assert.assertEquals;
-
 
 import static org.mockito.Mockito.*;
 
@@ -52,17 +37,18 @@ public class ApplicationTest {
 
     String wrongEmail = "asd@";
 
-    //Application app = mock(Application.class);
-    //Notification note = mock(Notification.class);
+    NotificationDao noteDao = mock(NotificationDao.class);
 
 
     @Before
     public void setUp(){
 
-        start(fakeApplication(inMemoryDatabase()));
+        doNothing().when(noteDao).persist(any());
+
+        Application.setNotificationDao(noteDao);
+
+        start(fakeApplication(inMemoryDatabase(), fakeGlobal()));
     }
-
-
 
     @Test
     public void simpleCheck() {
@@ -76,17 +62,14 @@ public class ApplicationTest {
 
         final Form<Notification> notForm = form(Notification.class);
 
-
-                Content html = views.html.index.render(notForm);
-                assertThat(contentType(html)).isEqualTo("text/html");
-                assertThat(contentAsString(html)).contains("Name:");
-                assertThat(contentAsString(html)).contains("Surname:");
-                assertThat(contentAsString(html)).contains("Email:");
-                assertThat(contentAsString(html)).contains("Year of birth:");
-                assertThat(contentAsString(html)).contains("Your favourite database:");
-                assertThat(contentAsString(html)).contains("Notes:");
-                assertThat(contentAsString(html)).contains("<input type=\"text\" id=\"surname\" name=\"surname\" value=\"\" />");
-
+        Content html = views.html.index.render(notForm);
+        assertThat(contentType(html)).isEqualTo("text/html");
+        assertThat(contentAsString(html)).contains("Name:");
+        assertThat(contentAsString(html)).contains("Surname:");
+        assertThat(contentAsString(html)).contains("Email:");
+        assertThat(contentAsString(html)).contains("Year of birth:");
+        assertThat(contentAsString(html)).contains("Your favourite database:");
+        assertThat(contentAsString(html)).contains("Notes:");
     }
 
 
@@ -94,16 +77,16 @@ public class ApplicationTest {
     @Test
     public void rootRoute() {
 
-                Result result = route(fakeRequest(GET, "/"));
-                assertThat(result).isNotNull();
+        Result result = route(fakeRequest(GET, "/"));
+        assertThat(result).isNotNull();
 
     }
 
     @Test
     public void badRoute() {
 
-                Result result = route(fakeRequest(GET, "/bad"));
-                assertThat(result).isNull();
+        Result result = route(fakeRequest(GET, "/bad"));
+        assertThat(result).isNull();
 
     }
 
@@ -114,24 +97,21 @@ public class ApplicationTest {
         assertThat(status(result)).isEqualTo(OK);
         assertThat(contentType(result)).isEqualTo("text/html");
         assertThat(charset(result)).isEqualTo("utf-8");
-        assertThat(contentAsString(result)).contains("<a class=\"navbar-brand\" href=\"/\">Add new note</a>");
     }
 
     @Test
-    public void callAdd() {
+    public void testSubmitValidationPass() {
 
-
-
-                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "favDb", favDb)));
-                assertThat(status(result)).isEqualTo(OK);
+        Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "favDb", favDb)));
+        assertThat(status(result)).isEqualTo(OK);
 
     }
 
     @Test
-    public void callAddWrong() {
+    public void testSubmitValidationErrors() {
 
-                Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "email", wrongEmail)));
-                assertThat(status(result)).isEqualTo(BAD_REQUEST);
+        Result result = callAction(routes.ref.Application.add(), new FakeRequest().withFormUrlEncodedBody(ImmutableMap.of("name", name, "email", wrongEmail)));
+        assertThat(status(result)).isEqualTo(BAD_REQUEST);
 
     }
 }

@@ -2,7 +2,6 @@ package models;
 
 import play.data.validation.Constraints;
 
-import javax.annotation.RegEx;
 import javax.persistence.*;
 import java.util.Date;
 
