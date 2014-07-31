@@ -1,10 +1,11 @@
 @(created: Notification)
 @main("Notifications"){
-    @created.getName()
-    @created.getSurname()
-    @created.getDate()
-    @created.getEmail()
-    @created.getFavDb()
-    @created.getNotes()
-
+    <div id="result">
+        @created.getName()
+        @created.getSurname()
+        @created.getDate()
+        @created.getEmail()
+        @created.getFavDb()
+        @created.getNotes()
+    </div>
 }
