@@ -4,12 +4,12 @@
 @main("Welcome to Play") {
 
     @form(action = routes.Application.add(), 'id -> "notForm"){
-        @inputText(notForm("name"), '_label -> "Name:")
-        @inputText(notForm("surname"), '_label -> "Surname:")
-        @inputDate(notForm("date"), '_label -> "Year of birth:")
-        @inputText(notForm("email"), '_label -> "Email:")
-        @select(notForm("favDb"), options = Seq("1"->"PostgreSQL", "2"->"MySql", "3"->"Oracle", "4"->"MsSql"), '_label -> "Your favourite database:")
-        @textarea(notForm("notes"), args = 'rows -> 3, 'cols -> 50, '_label -> "Notes:")
+        @inputText(notForm("name"), '_label -> "Name:", 'class -> "form-control")
+        @inputText(notForm("surname"), '_label -> "Surname:", 'class -> "form-control")
+        @inputDate(notForm("date"), '_label -> "Year of birth:", 'class -> "form-control")
+        @inputText(notForm("email"), '_label -> "Email:", 'class -> "form-control")
+        @select(notForm("favDb"), options = Seq("1"->"PostgreSQL", "2"->"MySql", "3"->"Oracle", "4"->"MsSql"), '_label -> "Your favourite database:", 'class -> "form-control")
+        @textarea(notForm("notes"), args = 'rows -> 3, 'cols -> 50, '_label -> "Notes:", 'class -> "form-control")
         <input type="submit" class="btn primary" value="Send">
     }
 }
