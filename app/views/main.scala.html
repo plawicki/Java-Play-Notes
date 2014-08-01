@@ -27,15 +27,12 @@
 
                     $.each(errors, function(e, i){
 
-                        if($.find("div.error").length === 0)
-                        {
-                            $('#'+e).after("<div class='error'>"+i+"</div>");
-                            $('#'+e).addClass("errorInput");
 
-                            HAS_ERRORS = true;
-                        }
-                        else
-                            HAS_ERRORS = false;
+                        $('#'+e).after("<div class='error'>"+i+"</div>");
+                        $('#'+e).addClass("errorInput");
+
+                        HAS_ERRORS = true;
+
                     });
 
                     changeButtonState();
