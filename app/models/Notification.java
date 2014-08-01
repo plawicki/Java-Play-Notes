@@ -26,8 +26,6 @@ public class Notification {
     @Constraints.Email
     String email;
 
-    @Constraints.Min(1)
-    @Constraints.Max(4)
     int favDb;
 
     @Constraints.MaxLength(5000)

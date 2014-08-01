@@ -1,10 +1,10 @@
-.error dd.error
+.error
 {
     color: red;
 
 }
 
-.error dd input
+.errorInput
 {
     border-color: red;
 }

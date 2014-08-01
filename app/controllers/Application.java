@@ -51,4 +51,14 @@ public class Application extends Controller {
         return ok(notes.render(created));
     }
 
+    public static Result validate(){
+        Form<Notification> filledForm = notForm.bindFromRequest();
+
+        if(filledForm.hasErrors()){
+            return badRequest(filledForm.errorsAsJson());
+        }
+
+        return ok();
+    }
+
 }
