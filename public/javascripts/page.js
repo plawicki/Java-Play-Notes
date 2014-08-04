@@ -26,27 +26,52 @@ $(function(){
         });
     }();
 
+    var removeError = function(elName){
+        $input = $('input[name='+elName+']');
+        $input.removeClass("errorInput");
+        $input.parent().children('.error').remove();
+    }
+
+    var addError = function(elName, error){
+        $('input[name='+elName+']').after("<div class='error'>"+error+"</div>").addClass("errorInput");
+    }
+
     // AJAX FUNCTIONS
     var ifError = function(e){
         var errors = JSON.parse(e.responseText);
 
-        $.each(errors, function(e, i){
+        $.each(errors, function(name, text){
 
-            var $el = $('input[name='+e+']');
+            var $el = $('input[name='+name+']');
 
             if(!$el.hasClass("errorInput"))
-                $('input[name='+e+']').after("<div class='error'>"+i+"</div>").addClass("errorInput");
+                addError(name, text);
 
             HAS_ERRORS = true;
+
         });
 
-      
+        $.each($('input'), function(i, el){
+
+            var $elName = $(el).attr("name");
+
+            if(!errors[$elName])
+                removeError($elName);
+
+        });
 
         changeButtonState();
     };
 
     var ifSuccess = function(e){
         HAS_ERRORS = false;
+
+       $.each($('input'), function(i, el){
+
+            var $elName = $(el).attr("name");
+
+            removeError($elName);
+        });
 
         changeButtonState();
     }
