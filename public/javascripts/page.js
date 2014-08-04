@@ -18,31 +18,36 @@ $(function(){
     }
 
     var cloningInputs = function(){
-        $.each($('input'), function(i, el){
 
-            $(el).keyup(function(e){
-                $('input[name='+e.target.id+']').val($(this).val());
+        var $inputes = $.merge($('input'), $('textarea'));
+        $inputes = $.merge($inputes, $('select'));
+
+        $.each($inputes, function(i, el){
+
+            $(el).change(function(e){
+                $('[name='+e.target.id+']').val($(this).val());
             });
         });
     }();
 
     var removeError = function(elName){
-        $input = $('input[name='+elName+']');
+        $input = $('[name='+elName+']');
         $input.removeClass("errorInput");
         $input.parent().children('.error').remove();
     }
 
     var addError = function(elName, error){
-        $('input[name='+elName+']').after("<div class='error'>"+error+"</div>").addClass("errorInput");
+        $('[name='+elName+']').after("<div class='error'>"+error+"</div>").addClass("errorInput");
     }
 
     // AJAX FUNCTIONS
     var ifError = function(e){
+
         var errors = JSON.parse(e.responseText);
 
         $.each(errors, function(name, text){
 
-            var $el = $('input[name='+name+']');
+            var $el = $('[name='+name+']');
 
             if(!$el.hasClass("errorInput"))
                 addError(name, text);
@@ -51,7 +56,7 @@ $(function(){
 
         });
 
-        $.each($('input'), function(i, el){
+        $.each($('[name]'), function(i, el){
 
             var $elName = $(el).attr("name");
 
@@ -66,7 +71,7 @@ $(function(){
     var ifSuccess = function(e){
         HAS_ERRORS = false;
 
-       $.each($('input'), function(i, el){
+       $.each($('[name]'), function(i, el){
 
             var $elName = $(el).attr("name");
 
@@ -77,11 +82,11 @@ $(function(){
     }
 
     // EVENTS
-    $('input[type="text"]').focusout(function(e){
+    $('[name]').focusout(function(e){
 
         $.ajax({
             method: "POST",
-            data: $('form[action="/send/').serialize(),
+            data: $('form[action="/send/"]').serialize(),
             url: "/validate/",
             error: ifError,
             success: ifSuccess
