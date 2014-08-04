@@ -11,60 +11,7 @@
         <script type="text/javascript" src="@routes.Assets.at("lib/jquery/jquery.min.js")"></script>
         <script type="text/javascript" src="@routes.Assets.at("lib/bootstrap/js/bootstrap.min.js")"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script>
-            $(function(){
-
-                var HAS_ERRORS = false;
-
-                var form = $('form[action="/send/"').clone();
-                $('div.col-md-12').append(form);
-
-                var form = $('#result').clone();
-                $('div.col-md-12').append(form);
-
-                var ifError = function(e){
-                    var errors = JSON.parse(e.responseText);
-
-                    $.each(errors, function(e, i){
-
-
-                        $('#'+e).after("<div class='error'>"+i+"</div>");
-                        $('#'+e).addClass("errorInput");
-
-                        HAS_ERRORS = true;
-
-                    });
-
-                    changeButtonState();
-                };
-
-                var ifSuccess = function(e){
-                    HAS_ERRORS = false;
-
-                    changeButtonState();
-                }
-
-                var changeButtonState = function(){
-                    if(HAS_ERRORS)
-                        $('input[type="submit"]').attr('disabled','disabled');
-                    else
-                    {
-                        $('input[type="submit"]').removeAttr('disabled');
-                    }
-                }
-
-                $('input[type="text"]').focusout(function(e){
-
-                    $.ajax({
-                        method: "POST",
-                        data: $('form[action="/send/').serialize(),
-                        url: "/validate/",
-                        error: ifError,
-                        success: ifSuccess
-                    });
-                });
-            });
-        </script>
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/page.js")"></script>
     </head>
     <body>
         <nav class="navbar navbar-default" role="navigation">
